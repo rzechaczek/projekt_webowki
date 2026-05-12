@@ -6,6 +6,7 @@ import {
     UpdateDateColumn,
     OneToMany,
 } from 'typeorm';
+import { Recipe } from '../recipes/entities/recipe.entity';
 
 @Entity('users')
 export class User {
@@ -26,4 +27,7 @@ export class User {
 
     @UpdateDateColumn()
     updatedAt: Date;
+
+    @OneToMany(() => Recipe, (recipe) => recipe.owner)
+    recipes: Recipe[];
 }
