@@ -7,6 +7,7 @@ import {Recipe} from "./recipes/entities/recipe.entity";
 import {RecipeIngredient} from "./recipes/entities/recipe-ingredient.entity";
 import {RecipeStep} from "./recipes/entities/recipe-step.entity";
 import {Tag} from "./recipes/entities/tag.entity";
+import {RecipesModule} from "./recipes/recipes.module";
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import {Tag} from "./recipes/entities/tag.entity";
     }),
     UsersModule,
     AuthModule,
+    RecipesModule,
   ],
 })
 export class AppModule {}
