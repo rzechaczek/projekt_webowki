@@ -1,15 +1,45 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
+import { Navbar } from './components/Navbar/Navbar';
+import { RecipesPage } from './pages/Recipes/RecipesPage';
 import { LoginPage } from './pages/Login/LoginPage';
 import { RegisterPage } from './pages/Register/RegisterPage';
 
+function PrivateRoute({ children }: { children: React.ReactNode }) {
+    const { isAuthenticated } = useAuth();
+    return isAuthenticated ? <>{children}</> : <Navigate to="/login" replace />;
+}
+
 export function App() {
-  return (
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="*" element={<Navigate to="/login" replace />} />
-        </Routes>
-      </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<RecipesPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route
+                    path="/favorites"
+                    element={
+                        <PrivateRoute>
+                            <div className="page container">
+                                <h2>Ulubione — wkrótce</h2>
+                            </div>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/my-recipes"
+                    element={
+                        <PrivateRoute>
+                            <div className="page container">
+                                <h2>Moje przepisy — wkrótce</h2>
+                            </div>
+                        </PrivateRoute>
+                    }
+                />
+                <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
