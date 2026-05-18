@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import { Navbar } from './components/Navbar/Navbar';
 import { RecipesPage } from './pages/Recipes/RecipesPage';
+import { RecipeDetailPage } from './pages/RecipeDetail/RecipeDetailPage';
 import { LoginPage } from './pages/Login/LoginPage';
 import { RegisterPage } from './pages/Register/RegisterPage';
 
@@ -16,6 +17,7 @@ export function App() {
             <Navbar />
             <Routes>
                 <Route path="/" element={<RecipesPage />} />
+                <Route path="/recipes/:id" element={<RecipeDetailPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route
@@ -23,7 +25,7 @@ export function App() {
                     element={
                         <PrivateRoute>
                             <div className="page container">
-                                <h2>Ulubione — wkrótce</h2>
+                                <h2>Ulubione</h2>
                             </div>
                         </PrivateRoute>
                     }
@@ -33,7 +35,7 @@ export function App() {
                     element={
                         <PrivateRoute>
                             <div className="page container">
-                                <h2>Moje przepisy — wkrótce</h2>
+                                <h2>Moje przepisy</h2>
                             </div>
                         </PrivateRoute>
                     }
