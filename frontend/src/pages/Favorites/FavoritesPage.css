@@ -1,0 +1,32 @@
+.favorites-header {
+    margin-bottom: 1.75rem;
+}
+
+.favorites-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+}
+
+.favorites-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1.25rem;
+}
+
+@media (max-width: 600px) {
+    .favorites-title {
+        font-size: 1.35rem;
+    }
+
+    .favorites-grid {
+        grid-template-columns: 1fr;
+    }
+}

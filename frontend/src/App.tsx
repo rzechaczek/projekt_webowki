@@ -3,12 +3,15 @@ import { useAuth } from './context/AuthContext';
 import { Navbar } from './components/Navbar/Navbar';
 import { RecipesPage } from './pages/Recipes/RecipesPage';
 import { RecipeDetailPage } from './pages/RecipeDetail/RecipeDetailPage';
+import { FavoritesPage } from './pages/Favorites/FavoritesPage';
 import { LoginPage } from './pages/Login/LoginPage';
 import { RegisterPage } from './pages/Register/RegisterPage';
 
 function PrivateRoute({ children }: { children: React.ReactNode }) {
     const { isAuthenticated } = useAuth();
-    return isAuthenticated ? <>{children}</> : <Navigate to="/login" replace />;
+    return isAuthenticated
+        ? <>{children}</>
+        : <Navigate to="/login" replace />;
 }
 
 export function App() {
@@ -24,9 +27,7 @@ export function App() {
                     path="/favorites"
                     element={
                         <PrivateRoute>
-                            <div className="page container">
-                                <h2>Ulubione</h2>
-                            </div>
+                            <FavoritesPage />
                         </PrivateRoute>
                     }
                 />
