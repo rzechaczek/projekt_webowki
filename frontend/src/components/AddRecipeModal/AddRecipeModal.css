@@ -1,0 +1,215 @@
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 1rem;
+}
+
+.modal-box {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 700px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.modal-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.modal-close-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    color: var(--text-subtle);
+    font-size: 0.9rem;
+    border-radius: var(--radius-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.modal-close-btn:hover {
+    background: var(--surface-2);
+    color: var(--text);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.modal-body {
+    overflow-y: auto;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.modal-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.modal-section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-subtle);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.modal-row-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.6rem;
+}
+
+.ing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ing-row {
+    display: grid;
+    grid-template-columns: 2fr 90px 80px 1.5fr auto;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.ing-amount,
+.ing-unit {
+    text-align: center;
+}
+
+.steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.step-row {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 0.6rem;
+    align-items: flex-start;
+}
+
+.step-row-number {
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.45rem;
+}
+
+.step-textarea {
+    resize: vertical;
+    min-height: 58px;
+}
+
+.row-remove-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    color: var(--text-subtle);
+    border-radius: var(--radius-xs);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition);
+    flex-shrink: 0;
+    margin-top: 0.45rem;
+}
+
+.row-remove-btn:hover {
+    background: var(--danger-bg);
+    color: var(--danger);
+}
+
+.modal-add-row-btn {
+    align-self: flex-start;
+    margin-top: 0.25rem;
+}
+
+.modal-error {
+    margin: 0 1.5rem;
+    flex-shrink: 0;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border);
+    background: var(--surface-2);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .modal-row-4 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ing-row {
+        grid-template-columns: 1fr 80px 70px;
+        grid-template-rows: auto auto;
+    }
+
+    .ing-note {
+        grid-column: 1 / -1;
+    }
+
+    .row-remove-btn {
+        grid-row: 1;
+        grid-column: 4;
+        margin-top: 0.45rem;
+    }
+}

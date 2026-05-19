@@ -6,6 +6,7 @@ import { RecipeDetailPage } from './pages/RecipeDetail/RecipeDetailPage';
 import { FavoritesPage } from './pages/Favorites/FavoritesPage';
 import { LoginPage } from './pages/Login/LoginPage';
 import { RegisterPage } from './pages/Register/RegisterPage';
+import {MyRecipesPage} from './pages/MyRecipes/MyRecipesPage';
 
 function PrivateRoute({ children }: { children: React.ReactNode }) {
     const { isAuthenticated } = useAuth();
@@ -35,9 +36,7 @@ export function App() {
                     path="/my-recipes"
                     element={
                         <PrivateRoute>
-                            <div className="page container">
-                                <h2>Moje przepisy</h2>
-                            </div>
+                            <MyRecipesPage/>
                         </PrivateRoute>
                     }
                 />

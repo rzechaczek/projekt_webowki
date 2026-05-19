@@ -1,5 +1,5 @@
 import api from './client';
-import type { AuthResponse, Recipe, Tag } from '../types';
+import type { AuthResponse, Recipe, Tag, CreateRecipePayload } from '../types';
 
 export const authApi = {
     register: (data: {
@@ -31,6 +31,9 @@ export const recipesApi = {
 
     getTags: () =>
         api.get<Tag[]>('/recipes/tags').then((r) => r.data),
+
+    create: (data: CreateRecipePayload) =>
+        api.post<Recipe>('/recipes', data).then((r) => r.data),
 
     remove: (id: string) =>
         api.delete(`/recipes/${id}`),

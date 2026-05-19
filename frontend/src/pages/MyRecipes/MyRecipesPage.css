@@ -1,0 +1,37 @@
+.myrecipes-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.myrecipes-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+}
+
+.myrecipes-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.myrecipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1.25rem;
+}
+
+@media (max-width: 600px) {
+    .myrecipes-title {
+        font-size: 1.35rem;
+    }
+
+    .myrecipes-grid {
+        grid-template-columns: 1fr;
+    }
+}
